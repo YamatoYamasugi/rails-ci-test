@@ -9,9 +9,8 @@ class Api::V1::MemosController < ApplicationController
         head :created
     end
     private
-    # ストロングパラメータを使うことで、限られた入力だけに絞ることができる
+        # ストロングパラメータを使うことで、限られた入力だけに絞ることができる
         def memo_params
             params.permit(:title, :content)
         end
-    
 end

@@ -14,7 +14,7 @@ RSpec.describe "Api::V1::Memos", type: :request do
   # APIにmemoが追加できるかどうかのテスト
   describe "POST /memos" do
     it "新しいメモを追加する" do
-      valid_params = {title: "title", content: "content"}
+      valid_params = { title: "title", content: "content" }
       post "http://127.0.0.1:3000/api/v1/memos", params: valid_params
       change(Memo, :count).by(+1)
       expect(response).to have_http_status(:success)
