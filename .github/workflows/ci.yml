@@ -59,9 +59,7 @@ jobs:
       # TEST DB setup
       - name: database setup
         run: |
-          mv config/database.org config/database.yml
-          mv config/secrets.org config/secrets.yml
-          bundle exec rails db:migrate RAILS_ENV=test
+          bundle exec rails db:migrate
 
       # Rspec実行
       - name: run Rspec
