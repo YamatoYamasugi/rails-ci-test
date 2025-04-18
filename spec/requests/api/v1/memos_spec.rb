@@ -42,7 +42,7 @@ RSpec.describe "Api::V1::Memos", type: :request do
     # リクエスト成功を表す200が返ってきたか確認する。
     expect(response.status).to eq(200)
 
-    #データが更新されている事を確認
+    # データが更新されている事を確認
     expect(json['title']).to eq('new-title')
  end
 end
