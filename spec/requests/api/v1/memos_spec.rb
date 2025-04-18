@@ -22,12 +22,12 @@ RSpec.describe "Api::V1::Memos", type: :request do
   end
   # APIにmemoが削除できるかどうかのテスト
   describe 'DELETE /api/v1/memos/:id' do
-    it 'deletes the memo' do
+    it 'メモを削除' do
       memo = FactoryBot.create(:memo)
       delete "http://127.0.0.1:3000/api/v1/memos/#{memo.id}"
       expect(response).to have_http_status(200)
     end
-    it 'ensures the memo is removed from the database' do
+    it 'メモがデータベースから消えているか' do
       memo = FactoryBot.create(:memo)
       delete "http://127.0.0.1:3000/api/v1/memos/#{memo.id}"
       expect(Memo.find_by(id: memo.id)).to be_nil
