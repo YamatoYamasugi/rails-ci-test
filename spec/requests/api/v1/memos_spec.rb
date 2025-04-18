@@ -33,4 +33,16 @@ RSpec.describe "Api::V1::Memos", type: :request do
       expect(Memo.find_by(id: memo.id)).to be_nil
     end
   end
+  it 'memoの編集を行う' do
+    memo = FactoryBot.create(:memo)
+
+    put "http://127.0.0.1:3000/api/v1/memos/#{memo.id}", params: { title: 'new-title' }
+    json = JSON.parse(response.body)
+
+    # リクエスト成功を表す200が返ってきたか確認する。
+    expect(response.status).to eq(200)
+
+    # データが更新されている事を確認
+    expect(json['title']).to eq('new-title')
+ end
 end
