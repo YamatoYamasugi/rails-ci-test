@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Api::V1::Memos", type: :request do
   describe "GET /memos" do
-    it "全権取得" do
+    it "全件取得" do
       FactoryBot.create_list(:memo, 5)
       get "http://127.0.0.1:3000/api/v1/memos"
       json = JSON.parse(response.body)
